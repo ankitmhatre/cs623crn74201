@@ -151,7 +151,7 @@ def insertStock(*stocks):
 
 
 
-
+# This function changes the value of d1 to dd1 in all the places as assigned to group 4
 def updateDepotAndStock(*depStock):
  
     sql = "BEGIN;ALTER TABLE Stock DROP CONSTRAINT fk_stock_prod_id;ALTER TABLE Stock DROP CONSTRAINT fk_stock_dep_id; ALTER TABLE Stock ADD CONSTRAINT fk_stock_prod_id FOREIGN KEY(prod_id) REFERENCES Product(prod_id) ON UPDATE CASCADE; ALTER TABLE Stock ADD CONSTRAINT fk_stock_dep_id FOREIGN KEY(dep_id) REFERENCES Depot(dep_id) ON UPDATE CASCADE; UPDATE Depot SET dep_id = %s WHERE dep_id =%s; COMMIT;"
